@@ -9,10 +9,12 @@
   </head>
 
   <body>
-    <header>
+    <header class="bg-black">
       <div class="container">
-        <div class="logo">CYBERPUNK</div>
-        <nav>
+        <div class="logo">
+          <img src="img/Cyberpunk_Edgerunners_logo.png" />
+        </div>
+        <nav class="navbar">
           <ul>
             <li><a href="#">Team</a></li>
             <li><a href="#">faq</a></li>
@@ -23,14 +25,21 @@
     </header>
 
     <main>
-      <section class="hero">
+      <section class="hero bg-black">
         <div class="container">
-          <div class="hero-content">
-            <h1>CYBERPUNK: EDGERUNNERS</h1>
-            <p>Sign me up, choomba. Into the fire.</p>
-            <a href="#">Sign up</a>
+          <div class="hero-inner">
+            <div class="hero-content">
+              <h1>CYBERPUNK: EDGERUNNERS</h1>
+              <p>
+                Having everything to lose, he chooses to stay alive by becoming
+                an edgerunner — a mercenary outlaw also known as a cyberpunk.
+              </p>
+              <a href="#" class="btn">Sign up</a>
+            </div>
+            <div class="hero-image">
+              <img src="img/cover.jpg" alt="cover" />
+            </div>
           </div>
-          <div class="hero-image">This is a placeholder for an image</div>
         </div>
       </section>
 
@@ -39,14 +48,14 @@
           <h2>Meet our team.</h2>
           <div class="team">
             <div class="member">
-              <img src="" alt="" width="200" height="200" />
-              <p>Team member</p>
+              <img src="img/lucy.jpg" alt="" />
+              <b>Lucy</b>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="quote">
+      <section class="quote bg-black c-body">
         <div class="container">
           <p>
             Don't make a name for yourself as a cyberpunk by how you live… Make
@@ -65,12 +74,12 @@
                 Meet our cute Rebecca by clicking that button right over there!
               </p>
             </div>
-            <a href="#">Sign up</a>
+            <a href="#" class="btn btn-border">Sign up</a>
           </div>
         </div>
       </section>
     </main>
 
-    <footer>The Odin Project 2022</footer>
+    <footer class="bg-black">The Odin Project 2022</footer>
   </body>
 </html>
