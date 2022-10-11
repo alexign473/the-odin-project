@@ -5,3 +5,4 @@ This is my project submissions for [The Odin Project](https://www.theodinproject
 ## Projects
 
 - [Project: Recipes](./00-odin-recipes)
+- [Project: Landing page](./01-landing-page)
