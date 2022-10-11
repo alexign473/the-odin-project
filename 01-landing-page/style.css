@@ -63,9 +63,34 @@ body {
   background-color: var(--c-body);
 }
 
+h1 {
+  font-size: 3rem;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2.25rem;
+  margin-bottom: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p,
+b,
+strong,
+a {
+  font-size: 1.1rem;
+}
+
 .bg-black {
   background-color: black;
   color: white;
+}
+
+.bg-accent {
+  background-color: var(--c-accent);
 }
 
 .c-body {
@@ -77,28 +102,110 @@ body {
   margin: 0 auto;
 }
 
-.logo {
-  max-width: 200px;
-  height: auto;
-}
-
-.navbar a {
-  color: white;
-}
-
 .btn {
   background-color: var(--c-accent);
   color: black;
   padding: 5px 16px;
-  border-radius: 5px;
 }
 
 .btn-border {
   border: 1px solid black;
 }
 
+.sec-spacing {
+  padding: 2rem 0;
+}
+
+.text-spacing {
+  margin: 1rem 0;
+}
+
+header {
+  padding: 1rem;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  max-width: 200px;
+  height: auto;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 8px;
+}
+
+.navbar a {
+  color: white;
+}
+
+.navbar a:hover {
+  color: whitesmoke;
+  text-decoration: underline;
+}
+
+.hero {
+}
+
+.hero-inner {
+  display: flex;
+  gap: 2rem;
+}
+
+.hero-image {
+  width: 500px;
+  height: 300px;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.info {
+  text-align: center;
+}
+
+.team {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
 .member img {
   width: 200px;
   height: 200px;
   object-fit: cover;
+  margin-bottom: 0.5rem;
+}
+
+.quote q {
+  display: block;
+  font-size: 2rem;
+  line-height: 1.2;
+  font-style: italic;
+}
+
+.quote strong {
+  font-size: 1.5rem;
+  float: right;
+}
+
+.quote-inner {
+  padding: 3rem 11rem;
+}
+
+.cta-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 4rem;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
 }
