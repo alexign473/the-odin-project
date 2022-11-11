@@ -1,9 +1,9 @@
 let playerScore = 0;
 let computerScore = 0;
 
+const buttons = document.querySelectorAll('button');
 const results = document.querySelector('.results');
 const score = document.querySelector('.score');
-const buttons = document.querySelectorAll('button');
 
 function getComputerChoice() {
   const choices = ['rock', 'paper', 'scissors'];
@@ -55,12 +55,10 @@ function game(e) {
   score.textContent = `Player score: ${playerScore}, Computer score: ${computerScore}`;
 
   if (playerScore >= 5) {
-    console.log('player win');
     results.textContent = 'End of the game! PLAYER WIN';
     return;
   }
   if (computerScore >= 5) {
-    console.log('computer win');
     results.textContent = 'End of the game! COMP WIN';
     return;
   }
