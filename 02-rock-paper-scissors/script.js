@@ -11,12 +11,10 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-  let result = '';
   // Compare inputted parameters
   // If player and computer choices are equal it's a tie
   if (playerSelection === computerSelection) {
-    result = 'Tie';
-    return result;
+    return 'Tie';
   }
   // Computer wincon
   if (
@@ -24,9 +22,8 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection === 'paper' && computerSelection === 'scissors') ||
     (playerSelection === 'scissors' && computerSelection === 'rock')
   ) {
-    result = `You Lose! ${computerSelection} beats ${playerSelection}`;
     computerScore++;
-    return result;
+    return `You Lose! ${computerSelection} beats ${playerSelection}`;
   }
   // Player wincon
   if (
@@ -34,11 +31,9 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection === 'paper' && computerSelection === 'rock') ||
     (playerSelection === 'scissors' && computerSelection === 'paper')
   ) {
-    result = `You Win! ${playerSelection} beats ${computerSelection}`;
     playerScore++;
-    return result;
+    return `You Win! ${playerSelection} beats ${computerSelection}`;
   }
-  return result;
 }
 
 function isGameOver() {
@@ -50,8 +45,7 @@ function game(e) {
   const playerSelection = e.target.id;
   const computerSelection = getComputerChoice();
   // Call playRound function with user input
-  const roundResult = playRound(playerSelection, computerSelection);
-  results.textContent = roundResult;
+  results.textContent = playRound(playerSelection, computerSelection);
   score.textContent = `Player score: ${playerScore}, Computer score: ${computerScore}`;
 
   if (playerScore >= 5) {
