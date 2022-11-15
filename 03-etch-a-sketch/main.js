@@ -5,10 +5,14 @@ function createGrid(rows, cols) {
   container.style.setProperty('--grid-cols', cols);
   for (let c = 0; c < rows * cols; c++) {
     const cell = document.createElement('div');
-    cell.innerText = c + 1;
     cell.classList.add('cell');
+    cell.addEventListener('mouseover', dye);
     container.append(cell);
   }
 }
 
-createGrid(16, 16);
+function dye(e) {
+  e.target.style.backgroundColor = 'black';
+}
+
+createGrid(100, 100);
