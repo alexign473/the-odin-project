@@ -6,21 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Etch-A-Sketch</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=VT323"
+    />
   </head>
   <body>
-    <h1>Etch-A-Sketch</h1>
-    <button id="size">Size</button>
-    <button id="reset">Reset</button>
-    <br />
-    <p>Choose color mode</p>
-    <button id="colorMode">Color</button>
-    <button id="rainbowMode">Rainbow</button>
-    <label
-      >Select color
-      <input type="color" name="color" id="color" />
-    </label>
+    <main>
+      <h1>Etch-a-Sketch</h1>
+      <div class="tools">
+        <button id="size">Size</button>
+        <button id="reset">Reset</button>
+        <div class="mode">
+          <p>Choose color mode</p>
+          <button id="colorMode">Color</button>
+          <button id="rainbowMode">Rainbow</button>
+        </div>
 
-    <div class="container border"></div>
+        <label class="color"
+          >Select color
+          <input type="color" name="color" id="color" value="#333333" />
+        </label>
+      </div>
+
+      <div class="canvas"></div>
+    </main>
 
     <script src="main.js"></script>
   </body>

@@ -3,24 +3,84 @@
   --grid-rows: 1;
 }
 
-.container {
-  max-width: 50em;
-  min-height: 50em;
-  margin: 0 auto;
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
 
+body {
+  font-family: 'VT323', monospace;
+  background-color: #2f242f;
+  color: white;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 3em;
+}
+
+h1 {
+  font-size: 70px;
+  color: #e4d00a;
+  text-shadow: 5px 5px black;
+}
+
+p {
+  margin-bottom: 0.5rem;
+}
+
+button {
+  min-width: 80px;
+  font-family: 'VT323', monospace;
+  font-size: 2rem;
+  background-color: white;
+  box-shadow: 5px 5px;
+  outline: none;
+  cursor: pointer;
+  transition: 0.1s ease-in-out;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+.tools {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1em;
+  font-size: 1.5rem;
+}
+
+.mode {
+  text-align: center;
+}
+
+.mode button:first-of-type {
+  margin-right: 0.5rem;
+}
+
+.color {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.canvas {
   display: grid;
   grid-template-rows: repeat(var(--grid-rows), 1fr);
   grid-template-columns: repeat(var(--grid-cols), 1fr);
-}
 
-.border {
-  border: 1px solid black;
+  width: 40em;
+  height: 40em;
+  background-color: white;
+  box-shadow: 10px 10px black;
 }
 
 .cell {
   user-select: none;
-}
-
-.dye {
-  background-color: black;
 }
