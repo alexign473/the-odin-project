@@ -1,4 +1,6 @@
 let size = 100;
+let colorMode = true;
+let currentColor = 'black';
 let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true);
 document.body.onmouseup = () => (mouseDown = false);
@@ -6,6 +8,8 @@ document.body.onmouseup = () => (mouseDown = false);
 const container = document.querySelector('.container');
 const sizeBtn = document.querySelector('#size');
 const resetBtn = document.querySelector('#reset');
+const colorModeBtn = document.querySelector('#colorMode');
+const rainbowModeBtn = document.querySelector('#rainbowMode');
 
 function createGrid(size) {
   container.style.setProperty('--grid-rows', size);
@@ -18,9 +22,22 @@ function createGrid(size) {
   }
 }
 
+function rainbowColor() {
+  const RAINBOW = [
+    '#9400D3',
+    '#4B0082',
+    '#0000FF',
+    '#00FF00',
+    '#FFFF00',
+    '#FF7F00',
+    '#FF0000',
+  ];
+  return RAINBOW[Math.floor(Math.random() * RAINBOW.length)];
+}
+
 function dye(e) {
   if (mouseDown) {
-    e.target.style.backgroundColor = 'black';
+    e.target.style.backgroundColor = colorMode ? currentColor : rainbowColor();
   }
 }
 
@@ -50,3 +67,5 @@ createGrid(size);
 
 sizeBtn.addEventListener('click', changeSize);
 resetBtn.addEventListener('click', resetCanvas);
+colorModeBtn.addEventListener('click', () => (colorMode = true));
+rainbowModeBtn.addEventListener('click', () => (colorMode = false));
