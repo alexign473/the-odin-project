@@ -2,10 +2,16 @@
 
 :root {
   --ff-body: 'Noto Sans', sans-serif;
+  --base-number: 35, 49%;
+  --base-operator: 205, 20%;
+  --base-equal: 13, 82%;
   --c-lightgray: #e5e5e5;
-  --c-number: #efe2d0;
-  --c-equal: #ef7b5a;
-  --c-operator: #475c6b;
+  --c-number: hsl(var(--base-number), 88%);
+  --c-number-hover: hsl(var(--base-number), 75%);
+  --c-operator: hsl(var(--base-operator), 35%);
+  --c-operator-hover: hsl(var(--base-operator), 25%);
+  --c-equal: hsl(var(--base-equal), 65%);
+  --c-equal-hover: hsl(var(--base-equal), 55%);
 }
 
 /* reset --> */
@@ -39,7 +45,6 @@ body {
 }
 
 button {
-  background-color: var(--c-number);
   border: none;
   border-radius: 8px;
   padding: 16px;
@@ -49,6 +54,33 @@ button {
   cursor: pointer;
 
   transition: 0.1s;
+}
+
+.number {
+  background-color: var(--c-number);
+  color: #000;
+}
+
+.number:hover {
+  background-color: var(--c-number-hover);
+}
+
+.operator {
+  background-color: var(--c-operator);
+  color: white;
+}
+
+.operator:hover {
+  background-color: var(--c-operator-hover);
+}
+
+.equal {
+  background-color: var(--c-equal);
+  color: white;
+}
+
+.equal:hover {
+  background-color: var(--c-equal-hover);
 }
 
 .container {
@@ -97,16 +129,6 @@ button {
 
 .null {
   grid-area: 5 / 1 / 6 / 3;
-}
-
-.equal {
-  background-color: var(--c-equal);
-  color: white;
-}
-
-.operator {
-  background-color: var(--c-operator);
-  color: white;
 }
 
 .expression {
