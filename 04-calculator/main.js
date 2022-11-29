@@ -15,7 +15,18 @@ function operate(a, b, operator) {
   if (operator) return operator(a, b);
 }
 
-console.log(operate(3, 2, add));
-console.log(operate(3, 2, subtract));
-console.log(operate(3, 2, multiply));
-console.log(operate(3, 2, divide));
+const expression = document.querySelector('.expression');
+const result = document.querySelector('.result');
+const numbers = document.querySelectorAll('.number');
+
+// on a number button click
+// take number value and store it in a variable
+// add this variable as text content to the div
+let displayValue = '';
+
+function fillDisplay(e) {
+  displayValue += e.target.value;
+  result.textContent = displayValue;
+}
+
+numbers.forEach((num) => num.addEventListener('click', fillDisplay));
