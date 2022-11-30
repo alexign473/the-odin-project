@@ -5,41 +5,72 @@ const actions = {
   divide: (a, b) => a / b,
 };
 
-function operate(a, b, operator) {
+function calculate(a, b, operator) {
   if (operator) return operator(a, b);
+  return b;
 }
 
 const expression = document.querySelector('.expression');
 const result = document.querySelector('.result');
-const numbers = document.querySelectorAll('.number');
-const operators = document.querySelectorAll('.operator');
-const equal = document.querySelector('.equal');
+const buttons = document.querySelector('.buttons');
 
 let inputValue = '';
 let firstNum = null;
 let operator = null;
+let waitingForSecondNum = false;
 
-function fillDisplay(e) {
-  inputValue += e.target.value;
+function updateDisplay() {
   result.textContent = inputValue;
 }
 
-function handleOperator(e) {
-  operator = e.target.value;
-  result.textContent += e.target.textContent;
-
-  if (!firstNum) {
-    firstNum = +inputValue;
+function inputDigit(digit) {
+  if (waitingForSecondNum) {
+    inputValue = digit;
+    waitingForSecondNum = false;
+  } else {
+    inputValue += digit;
   }
-  inputValue = '';
 }
 
-numbers.forEach((num) => num.addEventListener('click', fillDisplay));
+function inputDecimal(dot) {
+  if (!inputValue.includes(dot)) {
+    inputValue += dot;
+  }
+}
 
-operators.forEach((op) => op.addEventListener('click', handleOperator));
+function handleOperator(nextOperator) {
+  if (operator && waitingForSecondNum) {
+    operator = nextOperator;
+    return;
+  }
+  if (!firstNum) {
+    firstNum = +inputValue;
+  } else if (operator) {
+    const res = calculate(firstNum, +inputValue, actions[operator]);
+    inputValue = res;
+    firstNum = res;
+  }
 
-equal.addEventListener('click', function () {
-  const res = operate(firstNum, +inputValue, actions[operator]);
-  result.textContent = res;
-  firstNum = res;
+  operator = nextOperator;
+  waitingForSecondNum = true;
+}
+
+buttons.addEventListener('click', (e) => {
+  const { target } = e;
+
+  if (!target.matches('button')) {
+    return;
+  }
+  if (target.classList.contains('operator')) {
+    handleOperator(target.value);
+    updateDisplay();
+    return;
+  }
+  if (target.classList.contains('decimal')) {
+    inputDecimal(target.value);
+    updateDisplay();
+    return;
+  }
+  inputDigit(target.value);
+  updateDisplay();
 });
