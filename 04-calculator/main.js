@@ -3,13 +3,14 @@ const result = document.querySelector('.result');
 const buttons = document.querySelector('.buttons');
 
 const actions = {
-  add: (a, b) => a + b,
-  subtract: (a, b) => a - b,
-  multiply: (a, b) => a * b,
-  divide: (a, b) => a / b,
+  '+': (a, b) => a + b,
+  '-': (a, b) => a - b,
+  '*': (a, b) => a * b,
+  '/': (a, b) => a / b,
 };
 
 let inputValue = '';
+let expressionValue = '';
 let firstNum = null;
 let operator = null;
 let waitingForSecondNum = false;
@@ -21,6 +22,7 @@ function calculate(a, b, operator) {
 
 function updateDisplay() {
   result.textContent = inputValue;
+  expression.textContent = expressionValue;
 }
 
 function inputDigit(digit) {
@@ -41,6 +43,7 @@ function inputDecimal(dot) {
 function handleOperator(nextOperator) {
   if (operator && waitingForSecondNum) {
     operator = nextOperator;
+    expressionValue = `${firstNum} ${operator}`;
     return;
   }
   if (!firstNum) {
@@ -53,10 +56,12 @@ function handleOperator(nextOperator) {
 
   operator = nextOperator;
   waitingForSecondNum = true;
+  expressionValue = `${firstNum} ${operator}`;
 }
 
 function resetCalculator() {
   inputValue = '';
+  expressionValue = '';
   firstNum = null;
   operator = null;
   waitingForSecondNum = false;
@@ -69,10 +74,10 @@ buttons.addEventListener('click', (e) => {
     return;
   }
   switch (value) {
-    case 'add':
-    case 'subtract':
-    case 'multiply':
-    case 'divide':
+    case '+':
+    case '-':
+    case '*':
+    case '/':
     case '=':
       handleOperator(value);
       break;
