@@ -43,20 +43,20 @@ function inputDecimal(dot) {
 function handleOperator(nextOperator) {
   if (operator && waitingForSecondNum) {
     operator = nextOperator;
-    expressionValue = `${firstNum} ${operator}`;
+    expressionValue = `${inputValue} ${operator}`;
     return;
   }
   if (!firstNum) {
     firstNum = +inputValue;
   } else if (operator) {
     const res = calculate(firstNum, +inputValue, actions[operator]);
-    inputValue = res;
+    inputValue = +res.toFixed(7);
     firstNum = res;
   }
 
   operator = nextOperator;
   waitingForSecondNum = true;
-  expressionValue = `${firstNum} ${operator}`;
+  expressionValue = `${inputValue} ${operator}`;
 }
 
 function resetCalculator() {
