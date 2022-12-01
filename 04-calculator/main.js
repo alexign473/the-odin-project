@@ -1,3 +1,7 @@
+const expression = document.querySelector('.expression');
+const result = document.querySelector('.result');
+const buttons = document.querySelector('.buttons');
+
 const actions = {
   add: (a, b) => a + b,
   subtract: (a, b) => a - b,
@@ -5,19 +9,15 @@ const actions = {
   divide: (a, b) => a / b,
 };
 
-function calculate(a, b, operator) {
-  if (operator) return operator(a, b);
-  return b;
-}
-
-const expression = document.querySelector('.expression');
-const result = document.querySelector('.result');
-const buttons = document.querySelector('.buttons');
-
 let inputValue = '';
 let firstNum = null;
 let operator = null;
 let waitingForSecondNum = false;
+
+function calculate(a, b, operator) {
+  if (operator) return operator(a, b);
+  return b;
+}
 
 function updateDisplay() {
   result.textContent = inputValue;
@@ -55,6 +55,13 @@ function handleOperator(nextOperator) {
   waitingForSecondNum = true;
 }
 
+function resetCalculator() {
+  inputValue = '';
+  firstNum = null;
+  operator = null;
+  waitingForSecondNum = false;
+}
+
 buttons.addEventListener('click', (e) => {
   const { value } = e.target;
 
@@ -71,6 +78,9 @@ buttons.addEventListener('click', (e) => {
       break;
     case '.':
       inputDecimal(value);
+      break;
+    case 'clear':
+      resetCalculator();
       break;
     default:
       inputDigit(value);
