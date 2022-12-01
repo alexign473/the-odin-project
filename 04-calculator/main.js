@@ -56,21 +56,24 @@ function handleOperator(nextOperator) {
 }
 
 buttons.addEventListener('click', (e) => {
-  const { target } = e;
+  const { value } = e.target;
 
-  if (!target.matches('button')) {
+  if (!e.target.matches('button')) {
     return;
   }
-  if (target.classList.contains('operator')) {
-    handleOperator(target.value);
-    updateDisplay();
-    return;
+  switch (value) {
+    case 'add':
+    case 'subtract':
+    case 'multiply':
+    case 'divide':
+    case '=':
+      handleOperator(value);
+      break;
+    case '.':
+      inputDecimal(value);
+      break;
+    default:
+      inputDigit(value);
   }
-  if (target.classList.contains('decimal')) {
-    inputDecimal(target.value);
-    updateDisplay();
-    return;
-  }
-  inputDigit(target.value);
   updateDisplay();
 });
