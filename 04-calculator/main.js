@@ -9,7 +9,7 @@ const actions = {
   '/': (a, b) => a / b,
 };
 
-let inputValue = '';
+let inputValue = '0';
 let expressionValue = '';
 let firstNum = null;
 let operator = null;
@@ -30,7 +30,7 @@ function inputDigit(digit) {
     inputValue = digit;
     waitingForSecondNum = false;
   } else {
-    inputValue += digit;
+    inputValue = inputValue === '0' ? digit : inputValue + digit;
   }
 }
 
@@ -46,11 +46,13 @@ function handleOperator(nextOperator) {
     expressionValue = `${inputValue} ${operator}`;
     return;
   }
-  if (!firstNum) {
+  if (firstNum === null) {
     firstNum = +inputValue;
   } else if (operator) {
     const res = calculate(firstNum, +inputValue, actions[operator]);
-    inputValue = +res.toFixed(7);
+    // restrict the digits after the decimal point to 7 digits
+    // and remove extra zeros
+    inputValue = `${+res.toFixed(7)}`;
     firstNum = res;
   }
 
@@ -60,16 +62,23 @@ function handleOperator(nextOperator) {
 }
 
 function resetCalculator() {
-  inputValue = '';
+  inputValue = '0';
   expressionValue = '';
   firstNum = null;
   operator = null;
   waitingForSecondNum = false;
 }
 
+function removeDigit() {
+  if (waitingForSecondNum) return;
+  inputValue = inputValue.length === 1 ? '0' : inputValue.slice(0, -1);
+}
+
+// Event delegation listener
 buttons.addEventListener('click', (e) => {
   const { value } = e.target;
 
+  // listen only for child buttons
   if (!e.target.matches('button')) {
     return;
   }
@@ -86,6 +95,9 @@ buttons.addEventListener('click', (e) => {
       break;
     case 'clear':
       resetCalculator();
+      break;
+    case 'delete':
+      removeDigit();
       break;
     default:
       inputDigit(value);

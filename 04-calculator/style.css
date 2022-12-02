@@ -56,6 +56,10 @@ button {
   transition: 0.1s;
 }
 
+button > * {
+  pointer-events: none;
+}
+
 .number {
   background-color: var(--c-number);
   color: #000;
