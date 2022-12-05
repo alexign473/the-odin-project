@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@44659d9/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <main class="container">
+      <div class="calculator">
+        <div class="screen">
+          <div class="expression"></div>
+          <div class="result">0</div>
+        </div>
+        <hr class="line" />
+        <div class="buttons">
+          <button class="operator" value="clear">C</button>
+          <button class="operator">%</button>
+          <button class="operator" value="delete">
+            <i class="fa-regular fa-delete-left"></i>
+          </button>
+          <button class="operator" value="/">&divide;</button>
+
+          <button class="number" value="7">7</button>
+          <button class="number" value="8">8</button>
+          <button class="number" value="9">9</button>
+          <button class="operator" value="*">&times;</button>
+
+          <button class="number" value="4">4</button>
+          <button class="number" value="5">5</button>
+          <button class="number" value="6">6</button>
+          <button class="operator" value="-">-</button>
+
+          <button class="number" value="1">1</button>
+          <button class="number" value="2">2</button>
+          <button class="number" value="3">3</button>
+          <button class="operator" value="+">+</button>
+
+          <button class="number null" value="0">0</button>
+          <button class="number decimal" value=".">.</button>
+          <button class="operator equal" value="=">=</button>
+        </div>
+      </div>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>
