@@ -1,6 +1,7 @@
 # Etch-A-Sketch
 
-Create your own pixel art.
+Create your own pixel art.  
+[Live](https://alexign473.github.io/The-Odin-Project/03-etch-a-sketch/)
 
 ## Functionality
 
