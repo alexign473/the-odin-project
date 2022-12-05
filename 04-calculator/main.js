@@ -104,3 +104,22 @@ buttons.addEventListener('click', (e) => {
   }
   updateDisplay();
 });
+
+document.addEventListener('keydown', (e) => {
+  let { key } = e;
+
+  if (key === 'Enter') {
+    key = '=';
+  }
+  if (key === 'Escape' || key === 'c') {
+    key = 'clear';
+  }
+  if (key === 'Backspace') {
+    key = 'delete';
+  }
+
+  const btn = document.querySelector(`button[value="${key}"]`);
+  if (btn) {
+    btn.click();
+  }
+});
