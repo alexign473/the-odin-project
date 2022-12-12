@@ -145,6 +145,11 @@ button > * {
   line-height: 109%;
 }
 
+.expression,
+.result {
+  overflow-wrap: break-word;
+}
+
 @media (width >= 30em) {
   .calculator {
     width: 375px;
