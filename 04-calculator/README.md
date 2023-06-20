@@ -1,7 +1,7 @@
 # Calculator
 
 Simple calculator with basic math functions using vanilla JavaScript, HTML and CSS.  
-[Live](https://alexign473.github.io/The-Odin-Project/04-calculator/)
+[Live](https://isikava.github.io/The-Odin-Project-Foundations/04-calculator/)
 
 ![](./Screenshot.png)
 
